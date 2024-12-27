@@ -97,11 +97,3 @@ npx expo start
 ## Customization
 
 To modify the color scheme, update the `Colors` object in `constants/Colors.ts`.
-
-## Future Enhancements
-
-- Add persistent storage for tasks using AsyncStorage or a database.
-- Implement user authentication.
-- Add notifications for task reminders.
-
-Enjoy using the Task Manager app! Feel free to contribute by submitting issues or pull requests to improve the app.
