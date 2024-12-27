@@ -1,50 +1,113 @@
-# Welcome to your Expo app 👋
+# Task Manager App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Task Manager is a React Native application built with Expo, designed for managing tasks efficiently. It supports features like adding, editing, deleting tasks, toggling task status, and searching tasks. The app also includes a detailed task view.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Add new tasks
+- Edit existing tasks
+- Delete tasks
+- Toggle task status (Pending/Completed)
+- Search tasks by title
+- View task details
+- Error handling for invalid inputs
+- Customizable UI with a light and colorful theme
 
-   ```bash
-   npm install
-   ```
+## Technologies Used
 
-2. Start the app
+- **React Native**
+- **Expo Router** for navigation
+- **TypeScript** for type safety
+- **React Native Vector Icons** for icons
+- **react-native-safe-area-context** for layout management
 
-   ```bash
-    npx expo start
-   ```
+## Folder Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+.
+├── app
+│   ├── _layout.tsx
+│   ├── index.tsx
+│   └── task/[id].tsx
+├── components
+│   ├── AddTaskModal.tsx
+│   ├── EditTaskModal.tsx
+│   ├── TaskList.tsx
+│   ├── PrimaryButton.tsx
+│   ├── SearchBar.tsx
+│   └── ErrorMessage.tsx
+├── constants
+│   ├── Colors.ts
+│   └── Data.ts
+├── types
+│   └── task.ts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Prerequisites
 
-## Learn more
+- Node.js (v14.x or later)
+- Expo CLI
 
-To learn more about developing your project with Expo, look at the following resources:
+## Setup Instructions
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Step 1: Clone the Repository
 
-## Join the community
+Clone this repository to your local machine using:
 
-Join our community of developers creating universal apps.
+```bash
+git clone <repository-url>
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Step 2: Navigate to the Project Directory
+
+```bash
+cd task-manager
+```
+
+### Step 3: Install Dependencies
+
+Install the required dependencies using:
+
+```bash
+npm install
+```
+
+### Step 4: Start the Development Server
+
+Run the Expo development server:
+
+```bash
+npx expo start
+```
+
+### Step 5: Open the App
+
+- Use the QR code generated in the terminal to open the app on your mobile device via the Expo Go app (available on iOS and Android).
+- Alternatively, use an Android or iOS emulator.
+
+## Project Structure Overview
+
+- **`app/_layout.tsx`**: Defines the layout and navigation for the app.
+- **`app/index.tsx`**: Main screen for task management.
+- **`app/task/[id].tsx`**: Task details screen.
+- **`components/`**: Contains reusable components like modals, buttons, and task lists.
+- **`constants/`**: Includes mock data and color themes.
+- **`types/`**: Defines TypeScript types for tasks.
+
+## Customization
+
+To modify the color scheme, update the `Colors` object in `constants/Colors.ts`.
+
+## Future Enhancements
+
+- Add persistent storage for tasks using AsyncStorage or a database.
+- Implement user authentication.
+- Add notifications for task reminders.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Enjoy using the Task Manager app! Feel free to contribute by submitting issues or pull requests to improve the app.
