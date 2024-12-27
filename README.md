@@ -55,13 +55,13 @@ Task Manager is a React Native application built with Expo, designed for managin
 Clone this repository to your local machine using:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/viyur/taskmanager-react-native
 ```
 
 ### Step 2: Navigate to the Project Directory
 
 ```bash
-cd task-manager
+cd taskmanager-react-native
 ```
 
 ### Step 3: Install Dependencies
@@ -103,11 +103,5 @@ To modify the color scheme, update the `Colors` object in `constants/Colors.ts`.
 - Add persistent storage for tasks using AsyncStorage or a database.
 - Implement user authentication.
 - Add notifications for task reminders.
-
-## License
-
-This project is licensed under the MIT License.
-
----
 
 Enjoy using the Task Manager app! Feel free to contribute by submitting issues or pull requests to improve the app.
