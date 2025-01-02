@@ -84,7 +84,7 @@ export default TaskList;
 
 const styles = StyleSheet.create({
   description: {
-    flex: 1,
+    flex: 0.8,
   },
   taskItem: {
     padding: 16,
@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     justifyContent: "center",
     alignItems: "center",
+    flex: 0.2, // share the remaining space with the description
   },
   editButton: {
     width: "100%",
