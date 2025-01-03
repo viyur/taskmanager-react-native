@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { View, StyleSheet } from "react-native";
 
 import { Task } from "../types/task";
 import { mockTasks } from "../constants/Data";
@@ -12,8 +11,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import SearchBar from "../components/SearchBar";
 import ErrorMessage from "../components/ErrorMessage";
 
-// Mock data
-const initialTasks: Task[] = [...mockTasks]; // data from mock data file
+// mock tasks data base
 let tasksData: Task[] = [...mockTasks]; // dynamically update tasks data
 
 export default function HomeScreen() {
@@ -33,7 +31,7 @@ export default function HomeScreen() {
       ...newTask,
       id: Date.now().toString(), // Simple way to generate unique IDs
     };
-    tasksData = [...tasksData, task]; // update the tasks data
+    tasksData = [...tasksData, task]; // update the tasks mock database
     setTasks((currentTasks) => [...currentTasks, task]); // update the tasks state
   };
 
@@ -42,6 +40,11 @@ export default function HomeScreen() {
    * @param {Task} updatedTask The updated task to save.
    */
   const handleEditTask = (updatedTask: Task) => {
+    // update task in task mock database
+    tasksData = tasksData.map((task) =>
+      task.id === updatedTask.id ? updatedTask : task
+    );
+    // update task in task state
     setTasks((currentTasks) =>
       currentTasks.map((task) =>
         task.id === updatedTask.id ? updatedTask : task
@@ -54,7 +57,9 @@ export default function HomeScreen() {
    * @param {Task} task The task to delete.
    */
   const handleDeleteTask = (task: Task) => {
+    // delete task from task mock database
     tasksData = tasksData.filter((t) => t.id !== task.id);
+    // delete task from task state
     setTasks((currentTasks) => currentTasks.filter((t) => t.id !== task.id));
   };
 
@@ -63,11 +68,13 @@ export default function HomeScreen() {
    * @param {Task} task The task to toggle the status for.
    */
   const toggleTaskStatus = (task: Task) => {
+    // toggle task status from task mock database
     tasksData = tasksData.map((t) =>
       t.id === task.id
         ? { ...t, status: t.status === "pending" ? "completed" : "pending" }
         : t
     );
+    // toggle task status from task state
     setTasks((currentTasks) =>
       currentTasks.map((t) =>
         t.id === task.id
@@ -80,8 +87,17 @@ export default function HomeScreen() {
     );
   };
 
+  /**
+   * Handles changes to the search bar text input.
+   * If the input is empty, resets the tasks state to the original tasks data from `tasksData`.
+   * If the input is not empty, filters the tasks data by the input text and
+   * updates the tasks state with the filtered tasks.
+   * If no tasks are found, sets an error message.
+   * @param {string} text The input text from the search bar.
+   */
   const handleSearchBarChange = (text: string) => {
     if (text === "") {
+      // show all the tasks when search bar is empty
       setError(null);
       setTasks(tasksData);
       setSearchText("");

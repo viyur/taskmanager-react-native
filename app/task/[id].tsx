@@ -52,6 +52,7 @@ export default function TaskScreen() {
           {parsedTask.description && (
             <Text style={styles.description}>{parsedTask.description}</Text>
           )}
+
           {!parsedTask.description && (
             <Text style={styles.description}>No description provided</Text>
           )}
